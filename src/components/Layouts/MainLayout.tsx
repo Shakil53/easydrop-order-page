@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 import { Content, Footer, Header } from "antd/es/layout/layout";
 import SummaryHeader from "../SummaryCart/SummaryHeader";
 
-
 const MainLayout = () => {
     
  
@@ -21,8 +20,13 @@ const MainLayout = () => {
               }}
             >
                         {/* content here */}
-                        <SummaryHeader></SummaryHeader>
-            </div>
+                      
+              
+              <SummaryHeader></SummaryHeader>
+             
+                   
+           
+              </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
             EasyDrop ©{new Date().getFullYear()} Created by Shakil
