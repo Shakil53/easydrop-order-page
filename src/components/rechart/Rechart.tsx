@@ -17,6 +17,8 @@ import {
   AreaChart,
   Area,
   ResponsiveContainer,
+  BarChart,
+  Bar,
 } from 'recharts';
 import axios from 'axios';
 
@@ -114,7 +116,8 @@ const Rechart = () => {
         }
         return singlePhone;
       })
-      console.log(phoneData);
+      // console.log(phoneData);
+      setPhones(phoneData)
     })
 
   
@@ -145,25 +148,16 @@ const Rechart = () => {
         {/* rechart here */}
 
         <ResponsiveContainer width="100%" height={300}>
-          <AreaChart
-            width={500}
-            height={200}
-            data={data}
-            syncId="anyId"
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+         
+            <BarChart width={150} height={40} data={phones}>
+          <Bar  dataKey="price" fill="#8884d8" />
+          <XAxis dataKey='name'/>
+          <YAxis dataKey="price" />
             <Tooltip />
-            <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
-          </AreaChart>
+        </BarChart>
+          
         </ResponsiveContainer>
+        
             
         </div>
     );
