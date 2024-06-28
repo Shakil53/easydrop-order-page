@@ -2,8 +2,9 @@ import { Card } from "antd";
 import { CardContent } from "../ui/card";
 import icon1 from '../../assets/icons/dcf4135db2eb4b2bc6c6590c24308812.png'
 import { ArrowUp } from 'lucide-react';
-import Rechart from "../rechart/Rechart";
+
 import AsideItems from "../Layouts/AsideItems";
+import Rechart from "../rechart/Rechart";
 
 const SummaryHeader = () => {
     return (

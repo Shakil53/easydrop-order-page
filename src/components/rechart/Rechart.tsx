@@ -7,6 +7,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { useState } from "react";
 import {
   
   XAxis,
@@ -17,8 +18,11 @@ import {
   Area,
   ResponsiveContainer,
 } from 'recharts';
+import axios from 'axios';
 
 const Rechart = () => {
+
+  const [phones, setPhones] = useState([]);
 
   const data = [
     {
@@ -95,6 +99,25 @@ const Rechart = () => {
     },
   ];
 
+  // get api using axios and it shows data into graph
+  axios.get('https://openapi.programming-hero.com/api/phones?search=iphone')
+    .then(data => {
+      const loadedPhone = data.data.data;
+      const phoneData = loadedPhone.map(phone => {
+        // lets modify the data;
+        const parts = phone.slug.split('-');
+        const price = parseInt(parts[1]);
+        const singlePhone = {
+          name: phone.phone_name,
+          price: price
+
+        }
+        return singlePhone;
+      })
+      console.log(phoneData);
+    })
+
+  
 
     return (
         <div>
